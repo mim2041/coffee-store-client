@@ -37,7 +37,7 @@ const AddCoffee = () => {
                         confirmButtonText: 'Cool'
                       })
                 }
-            })
+        })
     }
 
     return (
