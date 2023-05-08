@@ -1,4 +1,5 @@
 import React from 'react';
+import Swal from 'sweetalert2'
 
 const AddCoffee = () => {
 
@@ -12,6 +13,7 @@ const AddCoffee = () => {
         const category = form.category.value;
         const details = form.details.value;
         const photo = form.photo.value;
+        form.reset();
 
         const newCoffee = {name, quantity, supplier, taste, category, details, photo};
         console.log(newCoffee);
@@ -27,6 +29,14 @@ const AddCoffee = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                if(data.insertedId){
+                    Swal.fire({
+                        title: 'Success',
+                        text: 'User added successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                      })
+                }
             })
     }
 
